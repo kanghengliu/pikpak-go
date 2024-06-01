@@ -1,4 +1,4 @@
-module github.com/lyqingye/pikpak-go
+module github.com/kanghengliu/pikpak-go
 
 go 1.20
 
