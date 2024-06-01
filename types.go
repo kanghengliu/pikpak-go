@@ -473,6 +473,7 @@ type RequestLogin struct {
 	ClientSecret string `json:client_secret,omitempty`
 	Username     string `json:"username,omitempty"`
 	Password     string `json:"password,omitempty"`
+	GrantType    string `json:"grant_type,omitempty"`
 }
 
 type ResponseLogin struct {

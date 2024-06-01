@@ -17,6 +17,7 @@ import (
 const (
 	ClientId        = "YUMx5nI8ZU8Ap8pm"
 	ClientSecret    = "dbw2OtmVEeuUvIptb1Coygx"
+	GrantType	    = "password"
 	PikpakUserHost  = "https://user.mypikpak.com"
 	PikpakDriveHost = "https://api-drive.mypikpak.com"
 	PackageName     = `mypikpak.com`
@@ -121,12 +122,13 @@ func (c *PikPakClient) Login() error {
 		ClientSecret: ClientSecret,
 		Username:     c.username,
 		Password:     c.password,
+		GrantType:    GrantType,
 	}
 	resp := ResponseLogin{}
 	originResp, err := c.client.R().
 		SetBody(&req).
 		SetResult(&resp).
-		Post(fmt.Sprintf("%s/v1/auth/signin", PikpakUserHost))
+		Post(fmt.Sprintf("%s/v1/auth/token", PikpakUserHost))
 	if err != nil {
 		return err
 	}
